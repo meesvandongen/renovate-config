@@ -9,6 +9,7 @@
   "rebaseWhen": "conflicted",
   "semanticCommits": "enabled",
   "semanticCommitScope": "{{replace '^.*/' '' repository}}",
+  "assignees": ["meesvandongen"],
   "packageRules": [
     {
       "description": "Group all non-major updates into one weekly PR and merge it once CI passes; majors wait for review",

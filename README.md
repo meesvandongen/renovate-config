@@ -27,6 +27,8 @@ What [`default.json`](./default.json) does:
   (Tegami, semantic-release) then ships a patch for runtime updates only. For
   Tegami the scope has to match the package name, so this works when the repo
   is named after its package.
+- Assigns PRs to @meesvandongen. Automerging PRs stay unassigned unless
+  their automerge fails (Renovate's default `assignAutomerge: false`).
 
 Repos can add their own `packageRules` after the `extends`; they are applied
 after the preset's rules.
