@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Weekly, automerged dependency updates with a 3-day minimum release age",
+  "description": "Weekly, grouped, automerged dependency updates with a 3-day minimum release age",
   "extends": ["config:recommended"],
   "timezone": "Europe/Amsterdam",
   "schedule": ["before 6am on monday"],
@@ -10,10 +10,15 @@
   "assignees": ["meesvandongen"],
   "packageRules": [
     {
-      "description": "Group all non-major updates into one weekly PR and merge it once CI passes; majors wait for review",
+      "description": "Group all non-major updates into one weekly PR and merge it once CI passes",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-non-major",
+      "automerge": true
+    },
+    {
+      "description": "Keep each major update in its own PR and merge it once CI passes",
+      "matchUpdateTypes": ["major"],
       "automerge": true
     }
   ],
