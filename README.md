@@ -20,6 +20,8 @@ What [`default.json`](./default.json) does:
 - Rebases Renovate PRs only when they conflict, not every time the base
   branch moves.
 - Runs lock file maintenance monthly, also automerged.
+- Assigns PRs to @meesvandongen. Automerging PRs stay unassigned unless
+  their automerge fails (Renovate's default `assignAutomerge: false`).
 
 Repos can add their own `packageRules` after the `extends`; they are applied
 after the preset's rules.
