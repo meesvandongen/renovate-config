@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Weekly, grouped, automerged dependency updates with a 3-day minimum release age",
+  "description": "Weekly, automerged dependency updates with a 3-day minimum release age",
   "extends": ["config:recommended"],
   "timezone": "Europe/Amsterdam",
   "schedule": ["before 6am on monday"],
