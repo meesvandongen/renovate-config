@@ -7,6 +7,8 @@
   "minimumReleaseAge": "3 days",
   "internalChecksFilter": "strict",
   "rebaseWhen": "conflicted",
+  "semanticCommits": "enabled",
+  "semanticCommitScope": "{{replace '^.*/' '' repository}}",
   "assignees": ["meesvandongen"],
   "packageRules": [
     {
@@ -20,6 +22,11 @@
       "description": "Keep each major update in its own PR and merge it once CI passes",
       "matchUpdateTypes": ["major"],
       "automerge": true
+    },
+    {
+      "description": "Runtime dependency updates commit as fix(<repo>) so release tooling ships a patch; a group with any runtime update takes the fix type, dev-only updates stay chore",
+      "matchDepTypes": ["dependencies"],
+      "semanticCommitType": "fix"
     }
   ],
   "lockFileMaintenance": {

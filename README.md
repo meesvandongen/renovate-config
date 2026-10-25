@@ -21,6 +21,13 @@ What [`default.json`](./default.json) does:
 - Rebases Renovate PRs only when they conflict, not every time the base
   branch moves.
 - Runs lock file maintenance monthly, also automerged.
+- Uses semantic commits scoped to the repo name. Updates to runtime
+  `dependencies` commit as `fix(<repo>): …`, everything else as
+  `chore(<repo>): …`. A grouped PR that contains at least one runtime update
+  takes the `fix` type. Release tooling that reads conventional commits
+  (Tegami, semantic-release) then ships a patch for runtime updates only. For
+  Tegami the scope has to match the package name, so this works when the repo
+  is named after its package.
 - Assigns PRs to @meesvandongen. Automerging PRs stay unassigned unless
   their automerge fails (Renovate's default `assignAutomerge: false`).
 
