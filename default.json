@@ -7,6 +7,8 @@
   "minimumReleaseAge": "3 days",
   "internalChecksFilter": "strict",
   "rebaseWhen": "conflicted",
+  "semanticCommits": "enabled",
+  "semanticCommitScope": "{{replace '^.*/' '' repository}}",
   "packageRules": [
     {
       "description": "Group all non-major updates into one weekly PR and merge it once CI passes; majors wait for review",
@@ -14,6 +16,11 @@
       "groupName": "all non-major dependencies",
       "groupSlug": "all-non-major",
       "automerge": true
+    },
+    {
+      "description": "Runtime dependency updates commit as fix(<repo>) so release tooling ships a patch; a group with any runtime update takes the fix type, dev-only updates stay chore",
+      "matchDepTypes": ["dependencies"],
+      "semanticCommitType": "fix"
     }
   ],
   "lockFileMaintenance": {
